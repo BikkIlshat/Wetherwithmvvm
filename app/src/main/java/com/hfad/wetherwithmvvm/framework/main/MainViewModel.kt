@@ -1,4 +1,4 @@
-package com.hfad.wetherwithmvvm.ui.main
+package com.hfad.wetherwithmvvm.framework.main
 
 import androidx.lifecycle.ViewModel
 
