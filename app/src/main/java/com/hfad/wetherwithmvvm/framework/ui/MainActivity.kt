@@ -1,8 +1,9 @@
-package com.hfad.wetherwithmvvm
+package com.hfad.wetherwithmvvm.framework.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.hfad.wetherwithmvvm.ui.main.MainFragment
+import com.hfad.wetherwithmvvm.R
+import com.hfad.wetherwithmvvm.framework.ui.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
 
