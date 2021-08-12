@@ -26,7 +26,6 @@ class DetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewLifecycleOwner.lifecycle.addObserver(viewModel)
         arguments?.getParcelable<Weather>(BUNDLE_EXTRA)?.let {
             with(binding) {
                 val city = it.city

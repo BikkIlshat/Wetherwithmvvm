@@ -8,17 +8,18 @@ import com.hfad.wetherwithmvvm.model.repository.Repository
 import java.lang.Thread.sleep
 
 
-const val THREAD_SLEEP = 1000
+
 
 class MainViewModel(private val repository: Repository) : ViewModel(), LifecycleObserver {
 
+   val THREAD_SLEEP = 1000
     private val liveDataToObserve: MutableLiveData<AppState> = MutableLiveData()
 
     fun getLiveData() = liveDataToObserve
 
-    fun getWeatherFromLocalStorageRus() = getDataFromLocalSource(isRussian = true)
+    fun getWeatherFromLocalSourceRus() = getDataFromLocalSource(isRussian = true)
 
-    fun getWeatherFromLocalStorageWorld() = getDataFromLocalSource(isRussian = false)
+    fun getWeatherFromLocalSourceWorld() = getDataFromLocalSource(isRussian = false)
 
 
     private fun getDataFromLocalSource(isRussian: Boolean) {
