@@ -12,7 +12,7 @@ import com.hfad.wetherwithmvvm.model.entities.Weather
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailsFragment : Fragment() {
-    private val viewModel: MainViewModel by viewModel()
+
     private var _binding: DetailsFragmentBinding? = null
     private val binding get() = _binding!!
 
