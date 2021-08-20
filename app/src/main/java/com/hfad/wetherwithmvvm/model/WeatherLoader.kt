@@ -14,6 +14,9 @@ import java.util.stream.Collectors
 import javax.net.ssl.HttpsURLConnection
 
 object WeatherLoader {
+    val READ_TIMEOUT = 10000
+    val STRING_BUILDER_CAPACITY = 1024
+
 
     fun loadWeather(lat: Double, lon: Double): WeatherDTO? {
         try {
@@ -26,7 +29,7 @@ object WeatherLoader {
                 urlConnection.addRequestProperty(
                     "X-Yandex-API-Key", "1b940c8a-4af2-446d-9ccc-887a9a676814"
                 )
-                urlConnection.readTimeout = 10000
+                urlConnection.readTimeout = READ_TIMEOUT
                 val bufferedReader = BufferedReader(InputStreamReader(urlConnection.inputStream))
                 // преобразование ответа от сервера (JSON) в модель данных (WeatherDTO)
                 val lines = if(Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
@@ -49,7 +52,7 @@ object WeatherLoader {
     }
 
     private fun getLinesForOld(reader: BufferedReader): String {
-        val rawData = StringBuilder(1024)
+        val rawData = StringBuilder(STRING_BUILDER_CAPACITY)
         var tempVariable: String?
 
         while (reader.readLine().also { tempVariable = it } != null) {
