@@ -9,7 +9,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.hfad.wetherwithmvvm.AppState
 import com.hfad.wetherwithmvvm.R
 import com.hfad.wetherwithmvvm.databinding.MainFragmentBinding
-import com.hfad.wetherwithmvvm.framework.ui.DetailsFragment
+import com.hfad.wetherwithmvvm.framework.ui.details.DetailsFragment
 import com.hfad.wetherwithmvvm.framework.ui.adapters.MainFragmentAdapter
 import com.hfad.wetherwithmvvm.model.entities.Weather
 import org.koin.androidx.viewmodel.ext.android.viewModel

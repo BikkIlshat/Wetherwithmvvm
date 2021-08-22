@@ -1,5 +1,6 @@
 package com.hfad.wetherwithmvvm.di
 
+import com.hfad.wetherwithmvvm.framework.ui.details.DetailsViewModel
 import com.hfad.wetherwithmvvm.framework.ui.main.MainViewModel
 import com.hfad.wetherwithmvvm.model.repository.Repository
 import com.hfad.wetherwithmvvm.model.repository.RepositoryImpl
@@ -12,4 +13,5 @@ val appModule = module {
 
     //View models
     viewModel { MainViewModel(get()) }
+    viewModel { DetailsViewModel(get()) }
 }
