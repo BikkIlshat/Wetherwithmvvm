@@ -9,6 +9,7 @@ import com.hfad.wetherwithmvvm.AppState
 import com.hfad.wetherwithmvvm.R
 import com.hfad.wetherwithmvvm.databinding.DetailsFragmentBinding
 import com.hfad.wetherwithmvvm.model.entities.Weather
+import com.squareup.picasso.Picasso
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailsFragment : Fragment() {
@@ -57,6 +58,11 @@ class DetailsFragment : Fragment() {
                     }
                 })
                 viewModel.loadData(it.city.lat, it.city.lon)
+                Picasso
+                    .get()
+                    .load("https://freepngimg.com/thumb/city/36275-3-city-hd.png")
+                    .fit()
+                    .into(imageView)
             }
         }
     }
