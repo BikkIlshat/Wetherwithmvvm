@@ -11,7 +11,7 @@ class RepositoryImpl: Repository {
         val dto = WeatherLoader.loadWeather(lat, lng)
         return Weather(
             temperature = dto?.fact?.temp ?: 0,
-            feelsLike = dto?.fact?.feels_like ?: 0,
+            feelsLike = dto?.fact?.feelsLike ?: 0,
             condition = dto?.fact?.condition
         )
     }
