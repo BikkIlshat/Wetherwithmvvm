@@ -14,6 +14,7 @@ class DetailsViewModel(private val repository: Repository) : ViewModel(), Lifecy
         liveDataObserver.value = AppState.Loading
         Thread {
             val data = repository.getWeatherFromServer(lat, lng)
+            repository.saveEntity(data)
             liveDataObserver.postValue(AppState.Success(listOf(data)))
         }.start()
     }
