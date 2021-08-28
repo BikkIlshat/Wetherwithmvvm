@@ -1,6 +1,8 @@
 package com.hfad.wetherwithmvvm.model.repository
 
 
+import com.hfad.wetherwithmvvm.model.database.Database
+import com.hfad.wetherwithmvvm.model.database.HistoryEntity
 import com.hfad.wetherwithmvvm.model.entities.City
 import com.hfad.wetherwithmvvm.model.entities.Weather
 import com.hfad.wetherwithmvvm.model.rest.WeatherRepo
@@ -21,4 +23,26 @@ class RepositoryImpl : Repository {
     override fun getWeatherFromLocalStorageRus() = City.getRussianCities()
 
     override fun getWeatherFromLocalStorageWorld() = City.getWorldCities()
+
+    override fun getAllHistory(): List<Weather> =
+        convertHistoryEntityToWeather(Database.db.historyDao().all())
+
+
+    override fun saveEntity(weather: Weather) {
+        Database.db.historyDao().insert(convertWeatherToEntity(weather))
+    }
+
+    private fun convertHistoryEntityToWeather(entityList: List<HistoryEntity>): List<Weather> =
+        entityList.map {
+            Weather(City(it.city, 0.0, 0.0), it.temperature, 0, it.condition)
+        }
+
+
+    private fun convertWeatherToEntity(weather: Weather): HistoryEntity =
+        HistoryEntity(0, weather.city.city,
+            weather.temperature ?: 0,
+            weather.condition ?: ""
+        )
+}
+
 }
