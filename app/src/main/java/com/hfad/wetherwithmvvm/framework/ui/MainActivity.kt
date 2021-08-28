@@ -1,6 +1,5 @@
 package com.hfad.wetherwithmvvm.framework.ui
 
-import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.hfad.wetherwithmvvm.R
