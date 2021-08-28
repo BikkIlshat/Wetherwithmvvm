@@ -3,10 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Hitman-47/AndroidStudioProjects/Android-2021/Android-2/Wetherwithmvvm/app/src/main/res/drawable/ic_history_24.xml" value="0.19322916666666667" />
         <entry key="..\:/Users/Hitman-47/AndroidStudioProjects/Android-2021/Android-2/Wetherwithmvvm/app/src/main/res/layout/details_fragment.xml" value="0.20364583333333333" />
+        <entry key="..\:/Users/Hitman-47/AndroidStudioProjects/Android-2021/Android-2/Wetherwithmvvm/app/src/main/res/layout/fragment_history.xml" value="0.17708333333333334" />
         <entry key="..\:/Users/Hitman-47/AndroidStudioProjects/Android-2021/Android-2/Wetherwithmvvm/app/src/main/res/layout/fragment_main_recycler_item.xml" value="0.1890625" />
+        <entry key="..\:/Users/Hitman-47/AndroidStudioProjects/Android-2021/Android-2/Wetherwithmvvm/app/src/main/res/layout/item_history_menu.xml" value="0.17708333333333334" />
         <entry key="..\:/Users/Hitman-47/AndroidStudioProjects/Android-2021/Android-2/Wetherwithmvvm/app/src/main/res/layout/main_activity.xml" value="0.13802083333333334" />
         <entry key="..\:/Users/Hitman-47/AndroidStudioProjects/Android-2021/Android-2/Wetherwithmvvm/app/src/main/res/layout/main_fragment.xml" value="0.115625" />
+        <entry key="..\:/Users/Hitman-47/AndroidStudioProjects/Android-2021/Android-2/Wetherwithmvvm/app/src/main/res/menu/manu_main.xml" value="0.17708333333333334" />
         <entry key="..\:/Users/Hitman-47/AndroidStudioProjects/Android-2021/Android-2/wetherwithmvvm/app/src/main/res/layout/main_activity.xml" value="0.22760416666666666" />
         <entry key="..\:/Users/Hitman-47/AndroidStudioProjects/Android-2021/Android-2/wetherwithmvvm/app/src/main/res/layout/main_fragment.xml" value="0.2877604166666667" />
       </map>
