@@ -57,7 +57,7 @@ class DetailsFragment : Fragment() {
                         }
                     }
                 })
-                viewModel.loadData(it.city.lat, it.city.lon)
+                viewModel.loadData(it.city.city, it.city.lat, it.city.lon)
                 Picasso
                     .get()
                     .load("https://freepngimg.com/thumb/city/36275-3-city-hd.png")

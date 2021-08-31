@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class City(
-    val city: String,
+    var city: String,
     val lat: Double,
     val lon: Double
 ) : Parcelable {
