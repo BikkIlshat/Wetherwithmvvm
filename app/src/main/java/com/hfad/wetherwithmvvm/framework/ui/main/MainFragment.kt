@@ -16,6 +16,7 @@ import com.hfad.wetherwithmvvm.model.entities.Weather
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFragment : Fragment() {
+
     private var isDataSetWorld: Boolean = false
     private val IS_WORLD_KEY = "LIST_OF_TOWNS_KEY"
     private val viewModel: MainViewModel by viewModel()
