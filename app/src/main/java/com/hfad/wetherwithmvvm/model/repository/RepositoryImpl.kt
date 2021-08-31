@@ -7,9 +7,9 @@ import com.hfad.wetherwithmvvm.model.entities.City
 import com.hfad.wetherwithmvvm.model.entities.Weather
 import com.hfad.wetherwithmvvm.model.rest.WeatherRepo
 
-//private const val LATITUDE = 0.0
-//private const val LONGITUDE = 0.0
-//private const val FEELSLIKE = 0
+private const val LATITUDE = 0.0
+private const val LONGITUDE = 0.0
+private const val FEELSLIKE = 0
 
 
 class RepositoryImpl : Repository {
@@ -18,7 +18,7 @@ class RepositoryImpl : Repository {
         val dto = WeatherRepo.api.getWeather(lat, lng).execute().body()
 
         return Weather(
-            
+
             temperature = dto?.fact?.temp ?: 0,
             feelsLike = dto?.fact?.feelsLike ?: 0,
             condition = dto?.fact?.condition
@@ -39,7 +39,7 @@ class RepositoryImpl : Repository {
 
     private fun convertHistoryEntityToWeather(entityList: List<HistoryEntity>): List<Weather> =
         entityList.map {
-            Weather(City(it.city, 0.0, 0.0), it.temperature, 0, it.condition)
+            Weather(City(it.city, LATITUDE, LONGITUDE), it.temperature, FEELSLIKE, it.condition)
         }
 
 
