@@ -10,6 +10,7 @@ import com.hfad.wetherwithmvvm.model.rest.WeatherRepo
 private const val LATITUDE = 0.0
 private const val LONGITUDE = 0.0
 private const val FEELSLIKE = 0
+private const val HISTORY_ENTITY_ID = 0
 
 
 class RepositoryImpl : Repository {
@@ -44,7 +45,8 @@ class RepositoryImpl : Repository {
 
 
     private fun convertWeatherToEntity(weather: Weather): HistoryEntity =
-        HistoryEntity(0, weather.city.city,
+        HistoryEntity(
+            HISTORY_ENTITY_ID.toLong(), weather.city.city,
             weather.temperature ?: 0,
             weather.condition ?: ""
         )
