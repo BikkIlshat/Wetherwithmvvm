@@ -3,7 +3,6 @@ package com.hfad.wetherwithmvvm.framework.ui.main
 import android.util.Log
 import androidx.lifecycle.*
 import com.hfad.wetherwithmvvm.AppState
-import com.hfad.wetherwithmvvm.model.entities.Weather
 import com.hfad.wetherwithmvvm.model.repository.Repository
 import java.lang.Thread.sleep
 

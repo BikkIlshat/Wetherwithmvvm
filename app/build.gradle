@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-parcelize'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -53,6 +54,9 @@ dependencies {
     implementation 'io.insert-koin:koin-android:3.0.2'
     //Image loading
     implementation 'com.squareup.picasso:picasso:2.8'
+    //Room
+    implementation  "androidx.room:room-runtime:2.3.0"
+    kapt  'androidx.room:room-compiler:2.3.0'
     //GSON
     implementation 'com.google.code.gson:gson:2.8.6'
     testImplementation 'junit:junit:4.+'
