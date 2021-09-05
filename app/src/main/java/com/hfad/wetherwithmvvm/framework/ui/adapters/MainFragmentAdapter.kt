@@ -33,12 +33,10 @@ class MainFragmentAdapter(private var itemClickListener: MainFragment.OnItemView
     }
 
     override fun getItemCount() = weatherData.size
-
     inner class MainViewHolder(view: View): RecyclerView.ViewHolder(view) {
         fun bind(weather: Weather) = with(binding) {
             mainFragmentRecyclerItemTextView.text = weather.city.city
             root.setOnClickListener{ itemClickListener.onItemViewClick(weather)}
-
         }
     }
 }
