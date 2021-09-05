@@ -37,4 +37,5 @@
     <string name="terrain">Схема</string>
     <string name="traffic">Трафик</string>
     <string name="start_marker">Старт</string>
+    <string name="From_long_click">От долгого щелчка </string>
 </resources>

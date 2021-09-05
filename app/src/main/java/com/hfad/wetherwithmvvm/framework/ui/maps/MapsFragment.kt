@@ -4,12 +4,14 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.graphics.Color
+import android.location.Address
+import android.location.Geocoder
 import androidx.fragment.app.Fragment
 
 import android.os.Bundle
 import android.view.*
 import androidx.core.app.ActivityCompat
-import androidx.lifecycle.Transformations.map
+
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -21,8 +23,14 @@ import com.hfad.wetherwithmvvm.R
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.PolylineOptions
 import com.hfad.wetherwithmvvm.databinding.FragmentMapsBinding
+import kotlinx.coroutines.*
+import java.io.IOException
 
-class MapsFragment : Fragment() {
+
+class MapsFragment : Fragment(), CoroutineScope by MainScope()  {
+
+    private val LATITUDE = 44.952117
+    private val LONGITUDE = 34.102417
     private lateinit var map: GoogleMap
     private var menu: Menu? = null
     private val markers: ArrayList<Marker> = ArrayList()
@@ -48,7 +56,7 @@ class MapsFragment : Fragment() {
             map.isMyLocationEnabled = true
         }
 
-        val initialPlace = LatLng(44.952117, 34.102417)
+        val initialPlace = LatLng(LATITUDE, LONGITUDE)
         val marker = googleMap.addMarker(
             MarkerOptions().position(initialPlace).title(getString(R.string.start_marker))
         )
@@ -78,12 +86,18 @@ class MapsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
+        initSearchByAddress()
     }
 
     override fun onDestroyView() {
         menu?.findItem(R.id.menu_google_maps)?.isVisible = true
         _binding = null
         super.onDestroyView()
+    }
+
+    override fun onDestroy() {
+        cancel()
+        super.onDestroy()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -116,6 +130,36 @@ class MapsFragment : Fragment() {
         return false
     }
 
+    private fun initSearchByAddress() = with(binding) {
+        buttonSearch.setOnClickListener {
+            val geoCoder = Geocoder(it.context)
+            val searchText = searchAddress.text.toString()
+            launch(Dispatchers.IO) {
+                try {
+                    val addresses = geoCoder.getFromLocationName(searchText, 1)
+                    if (addresses.isNotEmpty()) {
+                        goToAddress(addresses, it, searchText)
+                    }
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
+            }
+        }
+    }
+
+    private fun goToAddress(addresses: MutableList<Address>, view: View, searchText: String) {
+        val location = LatLng(addresses[0].latitude, addresses[0].longitude)
+        launch {
+            setMarker(location, searchText)
+            map.moveCamera(
+                CameraUpdateFactory.newLatLngZoom(
+                    location,
+                    15f
+                )
+            )
+        }
+    }
+
 
     private fun setMarker(location: LatLng, searchText: String) {
         map.addMarker(
@@ -124,6 +168,7 @@ class MapsFragment : Fragment() {
                 .title(searchText)
         )?.let { markers.add(it) }
     }
+
 
     private fun drawLine() {
         val last: Int = markers.size - 1
