@@ -1,4 +1,4 @@
-package com.hfad.wetherwithmvvm.framework.ui.main
+package com.hfad.wetherwithmvvm.framework.ui.list_of_cities
 
 import android.util.Log
 import androidx.lifecycle.*
@@ -9,7 +9,7 @@ import java.lang.Thread.sleep
 
 
 
-class MainViewModel(private val repository: Repository) : ViewModel(), LifecycleObserver {
+class ListOfCitiesViewModel(private val repository: Repository) : ViewModel(), LifecycleObserver {
 
    val THREAD_SLEEP = 1000
     private val liveDataToObserve: MutableLiveData<AppState> = MutableLiveData()
