@@ -10,6 +10,7 @@ import com.hfad.wetherwithmvvm.R
 import com.hfad.wetherwithmvvm.framework.ui.contacts.ContactsFragment
 import com.hfad.wetherwithmvvm.framework.ui.history.HistoryFragment
 import com.hfad.wetherwithmvvm.framework.ui.list_of_cities.ListOfCitiesFragmentBinding
+import com.hfad.wetherwithmvvm.framework.ui.maps.MapsFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -39,6 +40,10 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.menu_contacts -> {
                 openFragment(ContactsFragment.newInstance())
+                true
+            }
+            R.id.menu_google_maps -> {
+                openFragment(MapsFragment.newInstance())
                 true
             }
             else -> super.onOptionsItemSelected(item)

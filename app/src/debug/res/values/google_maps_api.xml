@@ -1,0 +1,24 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=41:64:8F:5E:65:F7:29:1F:00:28:53:B6:9A:B8:1A:4D:8C:B6:1D:51%3Bcom.hfad.wetherwithmvvm.framework.ui.list_of_cities
+
+    You can also add your credentials to an existing key, using these values:
+
+    Package name:
+    com.hfad.wetherwithmvvm.framework.ui.list_of_cities
+
+    SHA-1 certificate fingerprint:
+    41:64:8F:5E:65:F7:29:1F:00:28:53:B6:9A:B8:1A:4D:8C:B6:1D:51
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBV5YU_QrusklU8vMMh448EhXuTy8IZ1-w</string>
+</resources>
