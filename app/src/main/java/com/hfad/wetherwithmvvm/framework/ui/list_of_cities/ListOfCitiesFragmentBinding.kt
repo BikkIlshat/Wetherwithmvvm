@@ -32,6 +32,8 @@ import java.io.IOException
 class ListOfCitiesFragmentBinding : Fragment(), CoroutineScope by MainScope() {
 
     private var isDataSetWorld: Boolean = false
+    private var MIN_TIME_MS = 5000L
+    private var MIN_DISTANCE_M = 10f
     private val IS_WORLD_KEY = "LIST_OF_TOWNS_KEY"
     private val viewModel: ListOfCitiesViewModel by viewModel()
 
@@ -186,8 +188,8 @@ class ListOfCitiesFragmentBinding : Fragment(), CoroutineScope by MainScope() {
                 // Будем получать геоположение через каждые 60 секунд или каждые 100 метров
                 locationManager.requestLocationUpdates(
                     LocationManager.GPS_PROVIDER,
-                    5000L,
-                    10f,
+                    MIN_TIME_MS,
+                    MIN_DISTANCE_M,
                     onLocationListener
                 )
             }
