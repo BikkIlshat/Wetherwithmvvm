@@ -18,14 +18,27 @@
         android:id="@+id/mainFragmentFAB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_margin="16dp"
         android:src="@drawable/ic_russia"
+        app:backgroundTint="@android:color/transparent"
         app:tint="@null"
         app:maxImageSize="57dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:contentDescription="@string/change_cities_list" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/mainFragmentFABLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/black"
+        android:src="@android:drawable/ic_dialog_map"
+        app:tint="@null"
+        app:layout_constraintBottom_toTopOf="@+id/mainFragmentFAB"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/current_location"
+        app:maxImageSize="35dp" />
 
     <FrameLayout
         android:id="@+id/mainFragmentLoadingLayout"

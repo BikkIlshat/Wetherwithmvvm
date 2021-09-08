@@ -6,11 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.hfad.wetherwithmvvm.databinding.FragmentMainRecyclerItemBinding
-import com.hfad.wetherwithmvvm.framework.ui.main.MainFragment
+import com.hfad.wetherwithmvvm.framework.ui.list_of_cities.ListOfCitiesFragmentBinding
 import com.hfad.wetherwithmvvm.model.entities.Weather
-import org.koin.core.parameter.parametersOf
 
-class MainFragmentAdapter(private var itemClickListener: MainFragment.OnItemViewClickListener) :
+class MainFragmentAdapter(private var itemClickListener: ListOfCitiesFragmentBinding.OnItemViewClickListener) :
     RecyclerView.Adapter<MainFragmentAdapter.MainViewHolder>() {
     private var weatherData: List<Weather> = listOf()
     private lateinit var binding: FragmentMainRecyclerItemBinding
