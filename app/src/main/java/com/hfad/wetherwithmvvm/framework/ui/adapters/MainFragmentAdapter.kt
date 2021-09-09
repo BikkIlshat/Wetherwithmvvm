@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.hfad.wetherwithmvvm.databinding.FragmentMainRecyclerItemBinding
-import com.hfad.wetherwithmvvm.framework.ui.list_of_cities.ListOfCitiesFragmentBinding
+import com.hfad.wetherwithmvvm.framework.ui.list_of_cities.ListOfCitiesFragment
 import com.hfad.wetherwithmvvm.model.entities.Weather
 
-class MainFragmentAdapter(private var itemClickListener: ListOfCitiesFragmentBinding.OnItemViewClickListener) :
+class MainFragmentAdapter(private var itemClickListener: ListOfCitiesFragment.OnItemViewClickListener) :
     RecyclerView.Adapter<MainFragmentAdapter.MainViewHolder>() {
     private var weatherData: List<Weather> = listOf()
     private lateinit var binding: FragmentMainRecyclerItemBinding
