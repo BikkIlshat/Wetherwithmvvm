@@ -29,7 +29,7 @@ import kotlinx.coroutines.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.io.IOException
 
-class ListOfCitiesFragmentBinding : Fragment(), CoroutineScope by MainScope() {
+class ListOfCitiesFragment : Fragment(), CoroutineScope by MainScope() {
 
     private var isDataSetWorld: Boolean = false
     private var MIN_TIME_MS = 5000L
@@ -279,6 +279,6 @@ class ListOfCitiesFragmentBinding : Fragment(), CoroutineScope by MainScope() {
     }
 
     companion object {
-        fun newInstance() = ListOfCitiesFragmentBinding()
+        fun newInstance() = ListOfCitiesFragment()
     }
 }
