@@ -5,11 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.hfad.wetherwithmvvm.R
 import com.hfad.wetherwithmvvm.framework.ui.contacts.ContactsFragment
 import com.hfad.wetherwithmvvm.framework.ui.history.HistoryFragment
-import com.hfad.wetherwithmvvm.framework.ui.list_of_cities.ListOfCitiesFragmentBinding
+import com.hfad.wetherwithmvvm.framework.ui.list_of_cities.ListOfCitiesFragment
 import com.hfad.wetherwithmvvm.framework.ui.maps.MapsFragment
 
 class MainActivity : AppCompatActivity() {
@@ -20,9 +21,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_activity)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, ListOfCitiesFragmentBinding.newInstance())
+                .replace(R.id.container, ListOfCitiesFragment.newInstance())
                 .commitNow()
         }
+
+        val string = intent.extras?.getString("custom", "no data") ?: "no data"
+        Toast.makeText(this, string, Toast.LENGTH_SHORT).show()
 
     }
 
