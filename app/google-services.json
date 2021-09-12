@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "904529813918",
+    "project_id": "wetherwithmvvm",
+    "storage_bucket": "wetherwithmvvm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904529813918:android:f477e5ac5f4191eaa9768f",
+        "android_client_info": {
+          "package_name": "com.geekbrains.kotlinmvvm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "904529813918-t2mftoqp88vcaes5bnptmrcq6ssacrfc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBTvz5e5mBrHM2_wU7lD53E9TakHOzbrY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "904529813918-t2mftoqp88vcaes5bnptmrcq6ssacrfc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
