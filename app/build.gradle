@@ -5,59 +5,66 @@ plugins {
     id 'kotlin-kapt'
     id 'com.google.gms.google-services'
 }
+if(project.hasProperty("apikey.properties")
+        && new File(project.property("apikey.properties")).exists()) {
 
-android {
-    signingConfigs {
-        release {
-            storeFile file('D:\\GEEKBRAINS\\gb_keystore.jks')
-            storePassword '633109'
-            keyAlias 'gbAlias'
-            keyPassword '633109'
-        }
-    }
-    compileSdk 30
+    Properties props = new Properties()
+    props.load(new FileInputStream(file(project.property("apikey.properties"))))
 
-    defaultConfig {
-        applicationId "com.geekbrains.kotlinmvvm"
-        minSdk 21
-        targetSdk 30
-        versionCode 1
-        versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-    buildTypes.each {
-        Properties properties = new Properties()
-        properties.load(project.rootProject.file("apikey.properties").newDataInputStream())
-        def apiKey  = properties.getProperty("yandex_weather_api_key", "")
-        it.buildConfigField "String", "WEATHER_API_KEY", apiKey
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            signingConfig signingConfigs.release
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    android {
+        signingConfigs {
+            release {
+                keyAlias 'gb_Alias'
+                keyPassword props['keystore.password']
+                storeFile file(props['keystore'])
+                storePassword props['keystore.password']
+            }
         }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
-    buildFeatures {
-        viewBinding true
-    }
-    flavorDimensions 'version'
-    productFlavors {
-        free {
-            dimension 'version'
-            versionNameSuffix '.free'
+        compileSdk 30
+
+        defaultConfig {
+            applicationId "com.geekbrains.kotlinmvvm"
+            minSdk 21
+            targetSdk 30
+            versionCode 1
+            versionName "1.0"
+
+            testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         }
-        paid {
-            dimension 'version'
-            versionNameSuffix '.paid'
+        buildTypes.each {
+            Properties properties = new Properties()
+            properties.load(project.rootProject.file("apikey.properties").newDataInputStream())
+            def apiKey = properties.getProperty("yandex_weather_api_key", "")
+            it.buildConfigField "String", "WEATHER_API_KEY", apiKey
+        }
+        buildTypes {
+            release {
+                minifyEnabled false
+                signingConfig signingConfigs.release
+                proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            }
+        }
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+        kotlinOptions {
+            jvmTarget = '1.8'
+        }
+        buildFeatures {
+            viewBinding true
+        }
+        flavorDimensions 'version'
+        productFlavors {
+            free {
+                dimension 'version'
+                versionNameSuffix '.free'
+            }
+            paid {
+                dimension 'version'
+                versionNameSuffix '.paid'
+            }
         }
     }
 }
@@ -94,3 +101,5 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }
+
+
